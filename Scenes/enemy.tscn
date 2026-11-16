@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bjgmxyxjhljcy"]
+
+[ext_resource type="Script" uid="uid://t6c6dwg8280s" path="res://Scenes/enemy.gd" id="1_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://d08s1e4xhxat8" path="res://Enemy/yellow slime-Idle Down.png" id="2_afpow"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_287tu"]
+atlas = ExtResource("2_afpow")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0830c"]
+atlas = ExtResource("2_afpow")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghaa6"]
+atlas = ExtResource("2_afpow")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dp5w"]
+atlas = ExtResource("2_afpow")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dty56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_287tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0830c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghaa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dp5w")
+}],
+"loop": 1,
+"name": &"idle_right",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dty56"]
+size = Vector2(24, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqd6t"]
+size = Vector2(42, 39)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2052002208 groups=["enemy"]]
+scale = Vector2(1.5, 1.5)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_1f0kj")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=928224356]
+sprite_frames = SubResource("SpriteFrames_dty56")
+animation = &"idle_right"
+frame = 1
+frame_progress = 0.4459038
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=513569487]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_dty56")
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1658040476]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1146548877]
+position = Vector2(0, 8.5)
+shape = SubResource("RectangleShape2D_dqd6t")
