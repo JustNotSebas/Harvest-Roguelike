@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://b3s2hdi770188"]
+
+[ext_resource type="Script" uid="uid://b2msrog64avmf" path="res://Gun/bullet.gd" id="1_gof56"]
+[ext_resource type="Texture2D" uid="uid://bruhkouk1nnl4" path="res://Gun/All_Fire_Bullet_Pixel_16x16_05.png" id="2_5v6o7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyfmn"]
+atlas = ExtResource("2_5v6o7")
+region = Rect2(304, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dty56"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyfmn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dty56"]
+radius = 7.0
+height = 14.0
+
+[node name="Bullet" type="Area2D" unique_id=1162678463]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_gof56")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=184758469]
+sprite_frames = SubResource("SpriteFrames_dty56")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=117025798]
+rect = Rect2(-44, -39, 90, 79)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=463954660]
+shape = SubResource("CapsuleShape2D_dty56")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

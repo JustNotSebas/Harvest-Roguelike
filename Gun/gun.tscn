@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dah8jvtdnik48"]
+
+[ext_resource type="Texture2D" uid="uid://df7jqirlnrxn7" path="res://Gun/TheUltimateWeaponsPack_Sheet.png" id="1_n3g7m"]
+
+[node name="Gun" type="Node2D" unique_id=1365937719]
+scale = Vector2(0.65, 0.65)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1823301525]
+texture = ExtResource("1_n3g7m")
+offset = Vector2(-13, 3)
+flip_h = true
+hframes = 10
+vframes = 20
+frame = 61
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=853604258]
+position = Vector2(10.769231, -7.6923094)

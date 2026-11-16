@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://v26k87owypme"]
+
+[ext_resource type="PackedScene" uid="uid://b3cfg26auvyq0" path="res://Scenes/player.tscn" id="1_4ms0o"]
+[ext_resource type="PackedScene" uid="uid://0cti02a62wc2" path="res://Gun/crosshair.tscn" id="2_mrf6p"]
+[ext_resource type="PackedScene" uid="uid://bjgmxyxjhljcy" path="res://Scenes/enemy.tscn" id="3_mwjvy"]
+
+[node name="Node2D" type="Node2D" unique_id=589242799]
+
+[node name="Player" parent="." unique_id=985335462 instance=ExtResource("1_4ms0o")]
+position = Vector2(503, 331)
+
+[node name="Crosshair" parent="." unique_id=1000786927 instance=ExtResource("2_mrf6p")]
+
+[node name="Enemy" parent="." unique_id=1252059514 instance=ExtResource("3_mwjvy")]
+position = Vector2(864, 331)
+speed = 120.0
+max_health = 3
+damage = 1
+attack_cooldown = 1.0
